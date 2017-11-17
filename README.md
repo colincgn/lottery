@@ -1,9 +1,4 @@
-# Lottery Ticket Scanner
-  
-
-For example, a pick for the draw on `2017-11-11` might be:
- 
-`04 06 16 30 56` `18`
+# Lottery Ticket Scanning API
 
 ## Download
 
@@ -70,8 +65,8 @@ The expected result should be
 ```json
 {
   "results":[
-    {"isWinner":true,"pick":["4","6","16","30","56","18"],"amount":90000000},
-    {"isWinner":false,"pick":["4","5","7","12","44","20"],"amount":0}],
+    { "isWinner":true,"pick":["4","6","16","30","56","18"],"amount":90000000 },
+    { "isWinner":false,"pick":["4","5","7","12","44","20"],"amount":0 }],
   "totalWinningAmount":90000000
 }
 ```
