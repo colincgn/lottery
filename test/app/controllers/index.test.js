@@ -27,13 +27,13 @@ test('postTicketScan Controller, responds with what is returned from generatePay
   };
 
   td.when(gameResultService.getResultsForDrawDate('2017-10-10')).thenResolve(drawResults);
-  td.when(payoutCalculator.generatePayout(picks, drawResults)).thenReturn("calculated correctly");
+  td.when(payoutCalculator.generatePayout(picks, drawResults)).thenReturn('calculated correctly');
 
 
   await postTicketScan(req, res);
 
   t.notThrows(() =>
-    td.verify(res.json("calculated correctly"))
+    td.verify(res.json('calculated correctly'))
   );
 });
 
