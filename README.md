@@ -1,5 +1,6 @@
 # Lottery Ticket Scanning API
 
+A lottery ticket scanning API to solve the challenge found [here](https://github.com/autolotto/DeveloperCandidatesWhatDoTheyKnowDoTheyKnowThingsLetsFindOut)
 ## Download
 
 To checkout the source, you can run: 
