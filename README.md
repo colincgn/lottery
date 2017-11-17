@@ -84,25 +84,25 @@ You should see output like this:
 
 ```
   
-  ✔ app › App Environment
-  ✔ app › App Base Path
-  ✔ app › App Includes Error Handler Middleware
   ✔ game-results-service › index › Will return the correct object definition
   ✔ game-results-service › index › Will return the array of results if found
   ✔ game-results-service › index › Will return undefined if no results are found
   ✔ game-results-service › index › Will throw error if api call fails
-  ✔ ticket-payout-calculator › index › will return the correct payout structure
-  ✔ ticket-payout-calculator › index › will calculate the correct totalWiningAmount
-  ✔ ticket-payout-calculator › index › will calculate the correct totalWiningAmount
-  ✔ middleware › errors › Error Handler Middleware
-  ✔ middleware › errors › Error Handler for NotFound Case
+  ✔ app › App Environment
+  ✔ app › App Base Path
+  ✔ app › App Includes Error Handler Middleware
   ✔ controllers › index › Root message Controller
+  ✔ middleware › errors › Error Handler Middleware
   ✔ controllers › index › Fail Controller
   ✔ controllers › index › Not Found Controller
+  ✔ middleware › errors › Error Handler for NotFound Case
   ✔ controllers › index › postTicketScan Controller, responds with what is returned from generatePayout call.
+  ✔ ticket-payout-calculator › index › will return the correct payout structure
+  ✔ ticket-payout-calculator › index › will calculate the correct totalWiningAmount
+  ✔ ticket-payout-calculator › index › will return the correct payout if no numbers matched
   ✔ routes › routes › Router Setup
-  
-    17 tests passed
+
+  17 tests passed
 ```
 
 
