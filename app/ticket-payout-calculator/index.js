@@ -29,8 +29,8 @@ function getPickResults(drawResults) {
     const payout = matrixPayoutValue === 'JACKPOT' ? drawResults.jackpot : matrixPayoutValue;
 
     return {
-      winner: payout > 0,
-      winningPick: pick,
+      isWinner: payout > 0,
+      pick,
       amount: payout
     };
   };

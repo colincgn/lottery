@@ -1,42 +1,15 @@
-# Interview Exercise
+# Lottery Ticket Scanner
+  
 
-Your goal is to extend the functionality of this Node.js lottery service. 
-
-Powerball is a popular US lottery game with draws twice a week.  For the purposes of this exercise, a Powerball lottery "ticket" includes one or more sets of "picks".  Each "pick" is a set of 5 integers (from `1`-`69`) along with a 6th integer (the _Powerball_, from `1`-`26`) that the user has chosen to play during a specific draw. 
-
-For example, a pick for the draw on `2017-11-09` might be: 
-
-`02 14 19 21 61` `25`
-
-Your application's API will accept data for a lottery ticket, and respond with whether each pick has won, the prize won per-pick, and the total of all prizes won on the ticket.  It is up to you to design and build this API. 
-
-The Powerball winning numbers change on each "draw date". In order to determine a win or a loss, your application will have to retrieve the Powerball draw dates and winning numbers from the following URL: 
-
-https://games.api.lottery.com/api/v2.0/results?game=59bc2b6031947b9daf338d32
-
-To calculate the prize, consult the prize matrix image below: 
-
-![](https://raw.githubusercontent.com/autolotto/interview/master/powerball_rules.png)
-
-
-
-## Exercise Rules
-
-- There is no time limit to this challenge.
-- Use your best discretion with the design and requirements, but you can ask questions.
-- You must use JavaScript and must extend this code-base. 
-- There is no need for a UI to solve this problem. 
-- Follow modern JavaScript and Node best practices and conventions to the best of your ability.
-- You are free to add packages, tools or improvements to your project as you see fit.
-- You must submit your code via a GitHub repository. 
-- We expect you to write the kind of feature you would put into production, including tests and documentation as you see fit.
-
+For example, a pick for the draw on `2017-11-11` might be:
+ 
+`04 06 16 30 56` `18`
 
 ## Download
 
 To checkout the source, you can run: 
 
-`git clone https://github.com/autolotto/interview.git`
+`git clone https://github.com/colincgn/lottery.git`
 
 ## Installation
 
@@ -72,7 +45,34 @@ You should see something like this:
 
 ```json
 {
-  "messsage": "Hello World"
+  "message":"To use this API please refer to https://github.com/colincgn/lottery for further documentation"
+}
+```
+
+To scan a ticket you would POST to `http://localhost:3000/scan-ticket`
+
+eg.
+
+```json
+curl -X "POST" "http://localhost:3000/ticket-scan" \
+     -H 'Content-Type: application/json' \
+     -d $'{
+  "picks": [
+    ["4","6","16","30","56","18"],
+    ["4","5","7","12","44","20"]
+  ],
+  "drawDate": "2017-11-11"
+}'
+```
+
+The expected result should be
+
+```json
+{
+  "results":[
+    {"isWinner":true,"pick":["4","6","16","30","56","18"],"amount":90000000},
+    {"isWinner":false,"pick":["4","5","7","12","44","20"],"amount":0}],
+  "totalWinningAmount":90000000
 }
 ```
 
@@ -91,24 +91,23 @@ You should see output like this:
   ✔ app › App Environment
   ✔ app › App Base Path
   ✔ app › App Includes Error Handler Middleware
-  ✔ controllers › index › Hello World Controller
-  ✔ controllers › index › Fail Controller
-  ✔ controllers › index › Not Found Controller
+  ✔ game-results-service › index › Will return the correct object definition
+  ✔ game-results-service › index › Will return the array of results if found
+  ✔ game-results-service › index › Will return undefined if no results are found
+  ✔ game-results-service › index › Will throw error if api call fails
+  ✔ ticket-payout-calculator › index › will return the correct payout structure
+  ✔ ticket-payout-calculator › index › will calculate the correct totalWiningAmount
+  ✔ ticket-payout-calculator › index › will calculate the correct totalWiningAmount
   ✔ middleware › errors › Error Handler Middleware
   ✔ middleware › errors › Error Handler for NotFound Case
+  ✔ controllers › index › Root message Controller
+  ✔ controllers › index › Fail Controller
+  ✔ controllers › index › Not Found Controller
+  ✔ controllers › index › postTicketScan Controller, responds with what is returned from generatePayout call.
   ✔ routes › routes › Router Setup
   
-  9 tests passed
-  
+    17 tests passed
 ```
-
-## Contact
-
-We encourage you to use your best discretion, but also to ask questions and communicate if you need it.  
-
-If you have questions during the interview, call your HR contact or send a message to: 
-
-- [engineering@lottery.com](mailto:engineering@lottery.com)
 
 
 

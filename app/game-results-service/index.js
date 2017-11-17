@@ -6,13 +6,14 @@ const API_DATE_FORMAT = 'yyyy-mm-dd';
 /*
  example of cache format
  [{
- drawDate: '2017-11-11',
- jackpot:100000000,
- winningNumbers: [2, 3, 33, 45, 46, 16]
- }, {
- drawDate: '2017-11-09',
- jackpot:200000000,
- winningNumbers: [12, 13, 33, 45, 46, 16]
+    drawDate: '2017-11-11',
+    jackpot:100000000,
+    winningNumbers: [2, 3, 33, 45, 46, 16]
+ },
+ {
+    drawDate: '2017-11-09',
+    jackpot:200000000,
+    winningNumbers: [12, 13, 33, 45, 46, 16]
  }]
  */
 const cachedResults = [];
@@ -20,7 +21,7 @@ const cachedResults = [];
 /**
  *
  * @param { string } drawDate in the format of yyyy-mm-dd
- * @return { array } results game results
+ * @return { object } returns results for a given drawDate in the cacheResults format above, or undefined if no results are found.
  */
 async function getResultsForDrawDate(drawDate) {
   return getFromCache(drawDate) || fetchGameResultsForDrawDate(drawDate);

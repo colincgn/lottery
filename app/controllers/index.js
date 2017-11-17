@@ -3,10 +3,11 @@ const payoutCalculator = require('../ticket-payout-calculator');
 
 // Hello World on '/'
 function root(req, res) {
-  res.json({ message: 'To check ticket call ticket-scan' });
+  res.json({ message: 'To use this API please refer to https://github.com/colincgn/lottery for further documentation' });
 }
 
 async function postTicketScan(req, res) {
+
   validateTicket(req.body.drawDate, req.body.picks);
   const drawResults = await gameResultService.getResultsForDrawDate(req.body.drawDate);
 
@@ -22,10 +23,11 @@ async function postTicketScan(req, res) {
 
 /**
  * Validates the input parameters.  This could be more extensive but for the purpose of this coding challenge I left that out.
- * @param drawDate
- * @param picks
+ * @param { string }drawDate
+ * @param { array } picks is an array of arrays, indicating all the games played.
  */
 function validateTicket(drawDate, picks) {
+
   const generateError = errorMessage => {
     const err = new Error(errorMessage);
     err.status = 400;

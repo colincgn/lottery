@@ -259,7 +259,6 @@ test('Will return undefined if no results are found', async t => {
     }]
   );
 
-
   const result = await getResultsForDrawDate('2017-11-12');
 
   t.is(result, undefined);
