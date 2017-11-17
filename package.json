@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "ava": "^0.23.0",
+    "axios-mock-adapter": "1.9.0",
     "eslint": "^4.10.0",
     "eslint-plugin-ava": "^4.2.2",
     "eslint-plugin-no-loops": "^0.3.0",
@@ -38,6 +39,8 @@
   },
   "dependencies": {
     "body-parser": "~1.18.2",
+    "axios": "^0.17.1",
+    "dateformat": "^3.0.2",
     "express": "^4.16.2",
     "express-promise-router": "^2.0.0"
   }

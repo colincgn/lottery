@@ -3,11 +3,11 @@ const td = require('testdouble');
 
 const { root, fail, notFound } = require('../../../app/controllers');
 
-test('Hello World Controller', t => {
+test('Root message Controller', t => {
   const res = { json: td.function() };
   root({}, res);
   t.notThrows(() =>
-    td.verify(res.json({ message: 'Hello World' }))
+    td.verify(res.json({ message: 'To check ticket call ticket-scan' }))
   );
 });
 
